@@ -41,6 +41,10 @@ public class RateViewer {
         }
     }
 
+    /**
+     * 특정 영화의 평점 리스트 출력
+     * @param movieId 출력할 평점의 영화 번호
+     */
     private void printRate(int movieId){
         UserController userController = new UserController(connector);
         ArrayList<RateDTO> list = new ArrayList<>();
@@ -49,9 +53,12 @@ public class RateViewer {
             System.out.println("아직 등록된 평점이 존재하지 않습니다.");
         }
         else{
+
+            System.out.println("\n----------------------------");
             for(RateDTO r : list){
                 System.out.printf("%d점 - %s", r.getRating(), r.getWriterId());
             }
+            System.out.println("----------------------------\n");
         }
     }
 
